@@ -1,0 +1,115 @@
+﻿@model IEnumerable<TraXomHRM.Areas.Admin.Models.DataModel.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeCode) @*Mã nhân viên*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeName) @*Tên nhân viên*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsMale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position.PositionName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.WebAdministrator.UserName)
+        </th>*@
+
+
+        @*<th>
+            @Html.DisplayNameFor(model => model.IDCardNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfIssue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceOfIssue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PermanentAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsSingle)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirth)
+        </td>
+        <td>
+            @{ string gender = item.IsMale == 1 ? "Nam" : "Nữ";}
+            @Html.DisplayFor(modelItem => gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position.PositionName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.WebAdministrator.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDCardNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfIssue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaceOfIssue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PermanentAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSingle)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId })
+        </td>
+    </tr>
+}
+
+</table>

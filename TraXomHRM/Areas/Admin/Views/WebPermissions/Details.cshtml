@@ -1,0 +1,48 @@
+﻿@model TraXomHRM.Areas.Admin.Models.DataModel.WebPermission
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>WebPermission</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.WebBusiness.BusinessName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.WebBusiness.BusinessName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PermissionName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PermissionName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PermissionId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,133 @@
+﻿@model TraXomHRM.Areas.Admin.Models.DataModel.Employee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.DepartmentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position.PositionCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position.PositionCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebAdministrator.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebAdministrator.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMale)
+        </dt>
+
+        <dd>
+            @{ string gender = Model.IsMale==1? "Nam": "Nữ";}
+            @Html.DisplayFor(model => gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCardNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCardNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfIssue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfIssue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceOfIssue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceOfIssue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PermanentAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermanentAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSingle)
+        </dt>
+
+        <dd>
+            @{ string mariageStatus = Model.IsSingle == 1 ? "Độc thân" : "Đã kết hôn";}
+            @Html.DisplayFor(model => mariageStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<TraXomHRM.Areas.Admin.Models.DataModel.Department>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Danh Sách Phòng Ban</h3>
+        <form action="~/Admin/Departments" class="form-group col-md-6 pull-right">
+            <div class="input-group input-group-sm">
+                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-info"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.DepartmentId)</th>
+                <th>@Html.DisplayNameFor(model => model.DepartmentName)</th>
+                <th>Trực thuộc phòng ban</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartmentId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartmentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParentDepartment.DepartmentName)
+                    </td>
+                    <td>
+                        <a href="Departments/Edit/@item.DepartmentId" id="@item.DepartmentId"><i class="fa fa-pencil-square-o"></i></a> 
+                        <a href="Departments/Details/@item.DepartmentId" id="@item.DepartmentId"><i class="fa fa-search"></i></a> 
+                        <a href="Departments/Delete/@item.DepartmentId" id="@item.DepartmentId"><i class="fa  fa-remove"></i></a> 
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td colspan="4">@Html.ActionLink("Click vào đây để thêm mới phòng ban", "Create")</td>
+            </tr>
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+<!-- /.box -->
