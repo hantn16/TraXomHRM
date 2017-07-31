@@ -7,21 +7,22 @@
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">Danh Sách Phòng Ban</h3>
-        <form action="~/Admin/Departments" class="form-group col-md-6 pull-right">
+        @using (Html.BeginForm("Index", "Departments", FormMethod.Post, new { @class = "form-group col-md-6 pull-right" }))
+        {
             <div class="input-group input-group-sm">
-                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                <input type="text" name="searchString" class="form-control pull-right" placeholder="Search">
                 <div class="input-group-btn">
                     <button type="submit" class="btn btn-info"><i class="fa fa-search"></i></button>
                 </div>
             </div>
-        </form>
+        }
     </div>
     <!-- /.box-header -->
     <div class="box-body table-responsive no-padding">
         <table class="table table-hover">
             <tr>
-                <th>@Html.DisplayNameFor(model => model.DepartmentId)</th>
-                <th>@Html.DisplayNameFor(model => model.DepartmentName)</th>
+                <th>@Html.ActionLink("Mã phòng ban","Index",new { sortorder = ViewBag.IdSortPara})</th>
+                <th>@Html.ActionLink("Tên phòng ban", "Index", new { sortorder = ViewBag.NameSortPara })</th>
                 <th>Trực thuộc phòng ban</th>
                 <th></th>
             </tr>

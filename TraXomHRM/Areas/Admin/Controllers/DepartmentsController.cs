@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TraXomHRM.Areas.Admin.Models.BusinessModel;
 using TraXomHRM.Areas.Admin.Models.DataModel;
+using PagedList;
 
 namespace TraXomHRM.Areas.Admin.Controllers
 {
@@ -16,7 +17,7 @@ namespace TraXomHRM.Areas.Admin.Controllers
         private WebDbContext db = new WebDbContext();
 
         // GET: Admin/Departments
-        public ActionResult Index(string sortorder, string searchString)
+        public ActionResult Index(string sortorder, string searchString, string currentFilter,int? page)
         {
             var departments = db.Departments.Include(d => d.Leader).Include(d => d.ParentDepartment);
             ViewBag.IdSortPara = String.IsNullOrEmpty(sortorder) ? "id_desc" : "";
@@ -34,7 +35,7 @@ namespace TraXomHRM.Areas.Admin.Controllers
                     departments = departments.OrderByDescending(d => d.DepartmentId);
                     break;
                 case "name":
-                    departments = departments.OrderByDescending(d => d.DepartmentName);
+                    departments = departments.OrderBy(d => d.DepartmentName);
                     break;
                 default:departments = departments.OrderBy(d => d.DepartmentId);
                     break;
